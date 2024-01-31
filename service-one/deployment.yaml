@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: service1
-          image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-one:v2
+          image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-one:v3
           ports:
             - containerPort: 8080
 ---
@@ -29,4 +29,4 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-  type: LoadBalancer
+  type: ClusterIP
