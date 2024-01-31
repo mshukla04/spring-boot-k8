@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: service2
-          image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-two
+          image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-two:v1
           ports:
             - containerPort: 9090
 ---
