@@ -17,7 +17,7 @@ public class ServiceTwoController {
 
     @GetMapping("/send2")
     public String getFromOtherService() {
-        String endPoint = "http://service1/api/v1/receive1";
+        String endPoint = "/api/v1/receive1";
         return restTemplate.getForObject(endPoint, String.class);
     }
 
