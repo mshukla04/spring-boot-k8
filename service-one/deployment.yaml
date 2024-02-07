@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: service1
-          image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-one:latest
+          image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-one:v1
           ports:
             - containerPort: 8080
 ---
