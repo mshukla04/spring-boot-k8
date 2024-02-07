@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service1
+  name: app1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: service1
+      app: app1
   template:
     metadata:
       labels:
-        app: service1
+        app: app1
     spec:
       containers:
-        - name: service1
+        - name: app1
           image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-one:v1
           ports:
             - containerPort: 8080
@@ -24,9 +24,8 @@ metadata:
   name: service1
 spec:
   selector:
-    app: service1
+    app: app1
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-  type: NodePort
