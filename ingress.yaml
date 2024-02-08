@@ -4,20 +4,19 @@ metadata:
   name: my-ingress
 spec:
   rules:
-    # - host: <ingress-ip>.nip.io
-    http:
-      paths:
-        - path: /api/v1/send1
-          pathType: Prefix
-          backend:
-            service:
-              name: service1-service
-              port:
-                number: 80
-        - path: /api/v2/send2
-          pathType: Prefix
-          backend:
-            service:
-              name: service2-service
-              port:
-                number: 80
+    - http:
+        paths:
+          - path: /api/v1
+            pathType: Prefix
+            backend:
+              service:
+                name: service1-service
+                port:
+                  number: 80
+          - path: /api/v2
+            pathType: Prefix
+            backend:
+              service:
+                name: service2-service
+                port:
+                  number: 80
