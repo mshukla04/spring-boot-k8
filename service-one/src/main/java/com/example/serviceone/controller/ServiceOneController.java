@@ -13,7 +13,7 @@ public class ServiceOneController {
     @GetMapping("/send1")
     public String getFromOtherService() {
         RestTemplate restTemplate = new RestTemplate();
-        String endPoint = "http://34.107.254.152/api/v2/receive2";
+        String endPoint = "http://service2-service/api/v2/receive2";
         return restTemplate.getForObject(endPoint, String.class);
     }
 
