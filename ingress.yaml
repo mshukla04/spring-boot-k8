@@ -12,11 +12,11 @@ spec:
               service:
                 name: service1-service
                 port:
-                  number: 80
+                  number: 8080
           - path: /api/v2
             pathType: Prefix
             backend:
               service:
                 name: service2-service
                 port:
-                  number: 80
+                  number: 9090
