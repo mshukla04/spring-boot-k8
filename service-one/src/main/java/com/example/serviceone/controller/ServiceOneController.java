@@ -22,7 +22,8 @@ public class ServiceOneController {
     public String getFromOtherService() throws URISyntaxException {
 //        URI uri = new URI("http://service2-service:9090/api/v2/receive2");
         String endPoint = "https://jsonplaceholder.typicode.com/posts";
-        return restTemplate.getForObject(endPoint, String.class);
+        String response = restTemplate.getForObject(endPoint, String.class);
+        return response;
     }
 
     @GetMapping("/receive1")
