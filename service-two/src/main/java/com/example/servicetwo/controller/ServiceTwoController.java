@@ -9,14 +9,9 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/api/v2")
 public class ServiceTwoController {
 
-    private final RestTemplate restTemplate;
-
-    public ServiceTwoController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
     @GetMapping("/send2")
     public String getFromOtherService() {
+        RestTemplate restTemplate = new RestTemplate();
         String endPoint = "http://service1-service:8080/api/v1/receive1";
         return restTemplate.getForObject(endPoint, String.class);
     }

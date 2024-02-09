@@ -5,24 +5,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 @RestController
 @RequestMapping("/api/v1")
 public class ServiceOneController {
 
-    private final RestTemplate restTemplate;
-
-    public ServiceOneController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
 
     @GetMapping("/send1")
-    public String getFromOtherService() throws URISyntaxException {
-        String endPoint = "http://34.36.132.185/api/v2/receive2";
-        String response = restTemplate.getForObject(endPoint, String.class);
-        return response;
+    public String getFromOtherService() {
+        RestTemplate restTemplate = new RestTemplate();
+        String endPoint = "http://service2-service:9090/api/v2/receive2";
+        return restTemplate.getForObject(endPoint, String.class);
     }
 
     @GetMapping("/receive1")
