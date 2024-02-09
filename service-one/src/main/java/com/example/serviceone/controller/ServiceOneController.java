@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 @RestController
 @RequestMapping("/api/v1")
 public class ServiceOneController {
@@ -16,9 +19,10 @@ public class ServiceOneController {
     }
 
     @GetMapping("/send1")
-    public String getFromOtherService() {
-        String endPoint = "http://service2-service:9090/api/v2/receive2";
-        return restTemplate.getForObject(endPoint, String.class);
+    public String getFromOtherService() throws URISyntaxException {
+        URI uri = new URI("http://service2-service:9090/api/v2/receive2");
+//        String endPoint = "http://service2-service:9090/api/v2/receive2";
+        return restTemplate.getForObject(uri, String.class);
     }
 
     @GetMapping("/receive1")
