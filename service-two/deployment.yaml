@@ -17,3 +17,15 @@ spec:
           image: us-central1-docker.pkg.dev/my-kubernates-project-412710/codelabrepo/service-two:v1
           ports:
             - containerPort: 9090
+              name: http
+          readinessProbe:
+            httpGet:
+              path: /api/v2/receive2
+              port: http
+            initialDelaySeconds: 20
+          livenessProbe:
+            httpGet:
+              path: /api/v2/receive2
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 20
