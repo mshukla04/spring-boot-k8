@@ -20,9 +20,9 @@ public class ServiceOneController {
 
     @GetMapping("/send1")
     public String getFromOtherService() throws URISyntaxException {
-        URI uri = new URI("http://service2-service:9090/api/v2/receive2");
-//        String endPoint = "http://service2-service:9090/api/v2/receive2";
-        return restTemplate.getForObject(uri, String.class);
+//        URI uri = new URI("http://service2-service:9090/api/v2/receive2");
+        String endPoint = "https://jsonplaceholder.typicode.com/posts";
+        return restTemplate.getForObject(endPoint, String.class);
     }
 
     @GetMapping("/receive1")
