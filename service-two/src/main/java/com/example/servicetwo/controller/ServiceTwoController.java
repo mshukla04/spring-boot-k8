@@ -20,4 +20,5 @@ public class ServiceTwoController {
     public String response(){
         return "Sending response from service 2";
     }
+
 }
