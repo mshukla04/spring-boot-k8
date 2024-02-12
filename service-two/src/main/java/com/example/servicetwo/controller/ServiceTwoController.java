@@ -1,13 +1,19 @@
 package com.example.servicetwo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.servicetwo.entity.Customer;
+import com.example.servicetwo.service.CustomerService;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/api/v2")
 public class ServiceTwoController {
+
+    private final CustomerService customerService;
+
+    public ServiceTwoController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     @GetMapping("/send2")
     public String getFromOtherService() {
@@ -17,8 +23,8 @@ public class ServiceTwoController {
     }
 
     @GetMapping("/receive2")
-    public String response(){
-        return "Sending response from service 2";
+    public void response(){
+        this.customerService.getAll();
     }
 
 }
