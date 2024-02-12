@@ -5,7 +5,7 @@ metadata:
   labels:
     name: mysql-deploy
     app: mysql-gke-deployment
-  namespace: development
+  namespace: default
 spec:
   replicas: 1
   selector:

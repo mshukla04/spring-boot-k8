@@ -5,7 +5,7 @@ metadata:
   labels:
     name: mysql-data-store
     app: mysql-gke-deployment
-  namespace: development
+  namespace: default
 spec:
   resources:
     requests:
